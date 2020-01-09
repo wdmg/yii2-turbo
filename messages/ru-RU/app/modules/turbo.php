@@ -1,0 +1,15 @@
+<?php
+
+return [
+
+    'Yandex.Turbo' => 'Яндекс.Турбо',
+    'Turbo-pages generator' => 'Генератор турбо-страниц',
+
+    'Clear cache' => 'Очистить кеш',
+    'Turbo-pages cache has been successfully flushing!' => "Кэш турбо-страниц успешно очищен!",
+    'An error occurred while flushing the turbo-pages cache.' => "Произошла ошибка при очистке кеша турбо-страниц.",
+    'Error! Cache component not configured in the application.' => "Ошибка! Компонент кэша не настроен в приложении."
+
+];
+
+?>
