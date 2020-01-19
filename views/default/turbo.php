@@ -1,3 +1,8 @@
+<?php
+
+use yii\helpers\Html;
+
+?>
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>' . PHP_EOL ?>
 <rss version="2.0"
     xmlns:yandex="http://news.yandex.ru"
@@ -9,7 +14,7 @@
         <title><?= $channel['title']; ?></title>
 <?php endif; ?>
 <?php if (isset($channel['link'])) : ?>
-        <link><?= $channel['link']; ?></link>
+        <link><?= Html::encode($channel['url']); ?></link>
 <?php endif; ?>
 <?php if (isset($channel['description'])) : ?>
         <description><?= $channel['description']; ?></description>
@@ -26,7 +31,7 @@
 <?php foreach ($items as $item): ?>
 <?php if (isset($item['url']) && isset($item['content'])) : ?>
         <item turbo="<?= ($item['status']) ? 'true' : 'false'; ?>">
-            <link><?= $item['url']; ?></link>
+            <link><?= Html::encode($item['url']); ?></link>
 <?php if ($item['status']) : ?>
             <pubDate><?= $item['updated_at']; ?></pubDate>
             <turbo:content>

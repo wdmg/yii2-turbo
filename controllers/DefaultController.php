@@ -59,35 +59,4 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * Get items for building a Yandex turbo-pages
-     *
-     * @return array
-     */
-    private function getTurboItems() {
-        $items = [];
-        if (is_array($models = $this->module->supportModels)) {
-            foreach ($models as $name => $class) {
-                if (class_exists($class)) {
-                    $append = [];
-                    $model = new $class();
-                    foreach ($model->getAll(['in_turbo' => true]) as $item) {
-                        $append[] = [
-                            'url' => (isset($item->url)) ? $item->url : null,
-                            'name' => (isset($item->name)) ? $item->name : null,
-                            'title' => (isset($item->title)) ? $item->title : null,
-                            'image' => (isset($item->image)) ? $model->getImagePath(true) . '/' . $item->image : null,
-                            'description' => (isset($item->excerpt)) ? $item->excerpt : ((isset($item->description)) ? $item->description : null),
-                            'content' => (isset($item->content)) ? $item->content : null,
-                            'updated_at' => (isset($item->updated_at)) ? $item->updated_at : null,
-                            'status' => (isset($item->status)) ? (($item->status) ? true : false) : false
-                        ];
-                    };
-                    $items = ArrayHelper::merge($items, $append);
-                }
-            }
-        }
-
-        return $items;
-    }
 }
