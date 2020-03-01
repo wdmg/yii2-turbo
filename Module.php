@@ -103,7 +103,7 @@ class Module extends BaseModule
     {
         $items = [
             'label' => $this->name,
-            'icon' => 'fa-rocket',
+            'icon' => 'fa fa-fw fa-rocket',
             'url' => [$this->routePrefix . '/'. $this->id],
             'active' => (in_array(\Yii::$app->controller->module->id, [$this->id]) &&  Yii::$app->controller->id == 'list'),
         ];
