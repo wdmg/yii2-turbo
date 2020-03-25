@@ -4,7 +4,7 @@
   "keywords": ["yii2", "yii2-turbo", "yandex", "yandex-turbo", "rss", "generator", "wdmg"],
   "type": "yii2-extension",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/wdmg/yii2-turbo",
   "support": {
     "source": "https://github.com/wdmg/yii2-turbo",

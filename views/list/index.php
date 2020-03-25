@@ -33,6 +33,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'updated_at',
             'status'
         ],
+        'pager' => [
+            'options' => [
+                'class' => 'pagination',
+            ],
+            'maxButtonCount' => 5,
+            'activePageCssClass' => 'active',
+            'prevPageCssClass' => '',
+            'nextPageCssClass' => '',
+            'firstPageCssClass' => 'previous',
+            'lastPageCssClass' => 'next',
+            'firstPageLabel' => Yii::t('app/modules/turbo', 'First page'),
+            'lastPageLabel'  => Yii::t('app/modules/turbo', 'Last page'),
+            'prevPageLabel'  => Yii::t('app/modules/turbo', '&larr; Prev page'),
+            'nextPageLabel'  => Yii::t('app/modules/turbo', 'Next page &rarr;')
+        ],
     ]); ?>
     <hr/>
     <div class="btn-group">

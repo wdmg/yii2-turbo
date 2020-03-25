@@ -3,10 +3,10 @@
 namespace wdmg\turbo;
 
 /**
- * Yii2 RSS-feeds manager
+ * Yii2 Yandex.Turbo pages generator
  *
  * @category        Module
- * @version         1.0.0
+ * @version         1.0.1
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-turbo
  * @copyright       Copyright (c) 2019 - 2020 W.D.M.Group, Ukraine
@@ -21,7 +21,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
 /**
- * RSS-feed module definition class
+ * Yandex.Turbo module definition class
  */
 class Module extends BaseModule
 {
@@ -71,7 +71,7 @@ class Module extends BaseModule
     /**
      * @var string the module version
      */
-    private $version = "1.0.0";
+    private $version = "1.0.1";
 
     /**
      * @var integer, priority of initialization
