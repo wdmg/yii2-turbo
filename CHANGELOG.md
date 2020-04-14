@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## 1.0.2 (2020-04-14)
+ * Fixed models items retrieved
+ * Added support for Blog module
+ 
 ## 1.0.1 (2020-03-25)
  * Added pagination
  * Up to date dependencies

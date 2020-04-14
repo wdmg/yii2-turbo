@@ -6,7 +6,7 @@ namespace wdmg\turbo;
  * Yii2 Yandex.Turbo pages generator
  *
  * @category        Module
- * @version         1.0.1
+ * @version         1.0.2
  * @author          Alexsander Vyshnyvetskyy <alex.vyshnyvetskyy@gmail.com>
  * @link            https://github.com/wdmg/yii2-turbo
  * @copyright       Copyright (c) 2019 - 2020 W.D.M.Group, Ukraine
@@ -51,6 +51,7 @@ class Module extends BaseModule
     public $supportModels = [
         'pages' => 'wdmg\pages\models\Pages',
         'news' => 'wdmg\news\models\News',
+        'blog' => 'wdmg\blog\models\Posts'
     ];
 
     /**
@@ -71,7 +72,7 @@ class Module extends BaseModule
     /**
      * @var string the module version
      */
-    private $version = "1.0.1";
+    private $version = "1.0.2";
 
     /**
      * @var integer, priority of initialization
@@ -216,7 +217,7 @@ class Module extends BaseModule
 
 
     /**
-     * Get items for building a Yandex turbo-pages
+     * Get items for building a Yandex.Turbo pages
      *
      * @return array
      */
@@ -224,22 +225,29 @@ class Module extends BaseModule
         $items = [];
         if (is_array($models = $this->supportModels)) {
             foreach ($models as $name => $class) {
+                // If class of model exist
                 if (class_exists($class)) {
-                    $append = [];
+
                     $model = new $class();
-                    foreach ($model->getAll(['in_turbo' => true]) as $item) {
-                        $append[] = [
-                            'url' => (isset($item->url)) ? $item->url : null,
-                            'name' => (isset($item->name)) ? $item->name : null,
-                            'title' => (isset($item->title)) ? $item->title : null,
-                            'image' => (isset($item->image)) ? $model->getImagePath(true) . '/' . $item->image : null,
-                            'description' => (isset($item->excerpt)) ? $item->excerpt : ((isset($item->description)) ? $item->description : null),
-                            'content' => (isset($item->content)) ? $item->content : null,
-                            'updated_at' => (isset($item->updated_at)) ? $item->updated_at : null,
-                            'status' => (isset($item->status)) ? (($item->status) ? true : false) : false
-                        ];
-                    };
-                    $items = ArrayHelper::merge($items, $append);
+
+                    // If module is loaded
+                    if ($model->getModule()) {
+                        $append = [];
+
+                        foreach ($model->getAllPublished(['in_turbo' => true]) as $item) {
+                            $append[] = [
+                                'url' => (isset($item->url)) ? $item->url : null,
+                                'name' => (isset($item->name)) ? $item->name : null,
+                                'title' => (isset($item->title)) ? $item->title : null,
+                                'image' => (isset($item->image)) ? $model->getImagePath(true) . '/' . $item->image : null,
+                                'description' => (isset($item->excerpt)) ? $item->excerpt : ((isset($item->description)) ? $item->description : null),
+                                'content' => (isset($item->content)) ? $item->content : null,
+                                'updated_at' => (isset($item->updated_at)) ? $item->updated_at : null,
+                                'status' => (isset($item->status)) ? (($item->status) ? true : false) : false
+                            ];
+                        };
+                        $items = ArrayHelper::merge($items, $append);
+                    }
                 }
             }
         }
