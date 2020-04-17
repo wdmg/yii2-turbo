@@ -1,7 +1,8 @@
 Changelog
 =========
 
-## 1.0.2 (2020-04-14)
+## 1.0.2 (2020-04-17)
+ * Fixed xml view
  * Fixed models items retrieved
  * Added support for Blog module
  

@@ -14,7 +14,7 @@ use yii\helpers\Html;
         <title><?= $channel['title']; ?></title>
 <?php endif; ?>
 <?php if (isset($channel['link'])) : ?>
-        <link><?= Html::encode($channel['url']); ?></link>
+        <link><?= Html::encode($channel['link']); ?></link>
 <?php endif; ?>
 <?php if (isset($channel['description'])) : ?>
         <description><?= $channel['description']; ?></description>
