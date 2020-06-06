@@ -15,6 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1>
         <?= Html::encode($this->title) ?> <small class="text-muted pull-right">[v.<?= $module->version ?>]</small>
     </h1>
+    <?php if ($feed_url = $module->getFeedURL()) : ?>
+        <p><?= Yii::t('app/modules/turbo', 'Turbo-pages feed of the current site is available at: {url}',
+                ['url' => Html::a($feed_url, $feed_url, ['target' => '_blank', 'data-pjax' => 0])]
+            ) ?></p>
+    <?php endif; ?>
 </div>
 <div class="turbo-index">
     <?php Pjax::begin(); ?>

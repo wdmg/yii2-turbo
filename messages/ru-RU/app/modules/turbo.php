@@ -10,6 +10,8 @@ return [
     'An error occurred while flushing the turbo-pages cache.' => "Произошла ошибка при очистке кеша турбо-страниц.",
     'Error! Cache component not configured in the application.' => "Ошибка! Компонент кэша не настроен в приложении.",
 
+    'Turbo-pages feed of the current site is available at: {url}' => 'Лента турбо-страниц текущего сайта доступна по адресу: {url}',
+
     'First page' => 'Первая страница',
     'Last page' => 'Последняя страница',
     '&larr; Prev page' => '&larr; Предыдущая страница',
